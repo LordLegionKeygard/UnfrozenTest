@@ -7,12 +7,15 @@ public class MissionInfo : ScriptableObject
 {
     [Header("Text")]
     public string Name;
-    [TextArea(1, 5)] public string BeforeTextInfo;
-    [TextArea(1, 5)] public string MainTextInfo;
+    public string NumberText;
+    [TextArea(1, 5)] public string PrehistoryText;
+    [TextArea(1, 5)] public string MainText;
 
     [Header("Info")]
+    public int Id;
+    public MissionState StartState;
     public Vector2 MapPosition;
-    public MissionType MissionType;
+    public MissionPrehistoryPanel MissionPrehistoryPanel;
     public FractionsWrapper[] FractionsWrapper;
     public Heroes[] UnlockHeroes;
 
@@ -21,23 +24,31 @@ public class MissionInfo : ScriptableObject
     public ScoreWrapper[] OtherHeroScores;
 }
 
-public enum MissionType
+public enum MissionPrehistoryPanel
 {
-    Solo = 0,
-    Double = 1,
+    Left = 0,
+    Right = 1
+}
+
+public enum MissionState
+{
+    Active = 0,
+    Blocked = 1,
+    TemporarilyBlocked = 2,
+    Passed = 3,
 }
 
 public enum Fractions
 {
     NoNest = 0,
-    Jackdaws = 1, //Галки
-    Jays = 2, //Сойки
-    Sparrows = 3, //Воробьи
-    Eagles = 4, //Орлы
-    Seagulls = 5, //Чайки
-    Owls = 6, //Совы
-    Crows = 7, //Вороны
-    Phoenixes = 8, //Фениксы
+    Jackdaws = 1,
+    Jays = 2,
+    Sparrows = 3,
+    Eagles = 4,
+    Seagulls = 5,
+    Owls = 6,
+    Crows = 7,
+    Phoenixes = 8,
 
 }
 
