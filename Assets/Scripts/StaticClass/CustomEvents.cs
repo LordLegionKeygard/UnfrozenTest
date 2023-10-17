@@ -20,4 +20,16 @@ public class CustomEvents
     {
         OnSelectHero?.Invoke(hero);
     }
+
+    public static event Action<MissionInfo> OnCompleteMission;
+    public static void FireCompleteMission(MissionInfo missionInfo)
+    {
+        OnCompleteMission?.Invoke(missionInfo);
+    }
+
+    public static event Action OnUpdateHeroScoresView;
+    public static void FireUpdateHeroScoresView()
+    {
+        OnUpdateHeroScoresView?.Invoke();
+    }
 }

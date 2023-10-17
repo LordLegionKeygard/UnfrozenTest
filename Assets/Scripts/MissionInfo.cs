@@ -14,14 +14,24 @@ public class MissionInfo : ScriptableObject
     [Header("Info")]
     public int Id;
     public MissionState StartState;
-    public Vector2 MapPosition;
+    public MissionType MissionType;
     public MissionPrehistoryPanel MissionPrehistoryPanel;
+    public Vector2 MapPosition;
     public FractionsWrapper[] FractionsWrapper;
     public Heroes[] UnlockHeroes;
+    public int[] NextMissionsId;
+    public MissionState[] NextMissionIdState;
+    public int[] BlockedMissionsId;
 
     [Header("Scores")]
     public int CurrentHeroScores;
     public ScoreWrapper[] OtherHeroScores;
+}
+
+public enum MissionType
+{
+    Solo = 0,
+    Double = 1,
 }
 
 public enum MissionPrehistoryPanel

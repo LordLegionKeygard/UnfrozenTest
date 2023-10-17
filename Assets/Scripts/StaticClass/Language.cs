@@ -53,6 +53,18 @@ public class Language : MonoBehaviour
         _textPreviesStatic[10, 0] = "";
         _textPreviesStatic[10, 1] = "";
 
+        _textPreviesStatic[11, 0] = "Hawk";
+        _textPreviesStatic[11, 1] = "Ястреб";
+
+        _textPreviesStatic[12, 0] = "Seagull";
+        _textPreviesStatic[12, 1] = "Чайка";
+
+        _textPreviesStatic[13, 0] = "Owl";
+        _textPreviesStatic[13, 1] = "Совух";
+
+        _textPreviesStatic[14, 0] = "Crow";
+        _textPreviesStatic[14, 1] = "Ворон";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _textPreviesStatic[x, LanguageNumber];
     }

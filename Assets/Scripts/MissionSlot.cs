@@ -12,12 +12,40 @@ public class MissionSlot : MonoBehaviour
     {
         _missionView = GetComponent<MissionView>();
         CustomEvents.OnSetStartMissionSlotsInfo += SetStartInfo;
+        CustomEvents.OnCompleteMission += ChangeMissionState;
     }
 
     private void SetStartInfo()
     {
         CurrentMissionState = MissionInfo.StartState;
         UpdateSlot();
+        _missionView.CheckState(CurrentMissionState);
+    }
+
+    private void ChangeMissionState(MissionInfo missionInfo)
+    {
+        if (MissionInfo == missionInfo)
+        {
+            CurrentMissionState = MissionState.Passed;
+        }
+        else
+        {
+            for (int i = 0; i < missionInfo.NextMissionsId.Length; i++)
+            {
+                if (MissionInfo.Id == missionInfo.NextMissionsId[i])
+                {
+                    if(CurrentMissionState != MissionState.Active) CurrentMissionState = missionInfo.NextMissionIdState[i];
+                }
+            }
+
+            for (int i = 0; i < missionInfo.BlockedMissionsId.Length; i++)
+            {
+                if (MissionInfo.Id == missionInfo.BlockedMissionsId[i])
+                {
+                    CurrentMissionState = MissionState.TemporarilyBlocked;
+                }
+            }
+        }
         _missionView.CheckState(CurrentMissionState);
     }
 
@@ -34,5 +62,6 @@ public class MissionSlot : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnSetStartMissionSlotsInfo -= SetStartInfo;
+        CustomEvents.OnCompleteMission -= ChangeMissionState;
     }
 }

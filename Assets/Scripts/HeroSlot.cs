@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class HeroSlot : MonoBehaviour
 {
-    public Heroes Hero;
+    [SerializeField] private Heroes _hero;
+    public Heroes Hero => _hero;
+    private HeroSlotView _heroSlotView;
+
+    private void Awake()
+    {
+        _heroSlotView = GetComponent<HeroSlotView>();
+    }
+
+    public void SetNewHero(Heroes hero)
+    {
+        _hero = hero;
+        _heroSlotView.SetNewName();
+    }
 
     public void SelectSlot()
     {
-        CustomEvents.FireSelectHero(Hero);
+        CustomEvents.FireSelectHero(_hero);
     }
 }

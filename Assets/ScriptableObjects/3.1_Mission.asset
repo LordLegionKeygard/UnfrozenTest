@@ -47,13 +47,17 @@ MonoBehaviour:
     \u0432 \u0427\u0430\u0449\u0435."
   Id: 2
   StartState: 1
-  MapPosition: {x: 830, y: 365}
+  MissionType: 1
   MissionPrehistoryPanel: 0
+  MapPosition: {x: 830, y: 365}
   FractionsWrapper:
   - NeedHeroes: 0
     PlayerFractions: 06000000
     EnemyFractions: 07000000
   UnlockHeroes: 
+  NextMissionsId: 05000000
+  NextMissionIdState: 00000000
+  BlockedMissionsId: 03000000
   CurrentHeroScores: 5
   OtherHeroScores:
   - Hero: 4

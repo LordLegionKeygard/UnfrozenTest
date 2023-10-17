@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MissionPrehistorySlot : BaseMissionPanelSlot
 {
+    [SerializeField] private MissionsPrehistorySetter _missionsPrehistorySetter;
     [SerializeField] private MainMissionSlot _mainMissionSlot;
     public override void SetMissionInfo(MissionInfo missionInfo)
     {
@@ -15,5 +16,6 @@ public class MissionPrehistorySlot : BaseMissionPanelSlot
     {
         _mainMissionSlot.gameObject.SetActive(true);
         _mainMissionSlot.SetMissionInfo(CurrentMissionInfo);
+        _missionsPrehistorySetter.DeactivatePanels();
     }
 }

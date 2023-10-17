@@ -51,5 +51,8 @@ MonoBehaviour:
     PlayerFractions: 04000000
     EnemyFractions: 06000000
   UnlockHeroes: 03000000
+  NextMissionsId: 0800000009000000
+  NextMissionIdState: 0000000000000000
+  BlockedMissionsId: 
   CurrentHeroScores: 5
   OtherHeroScores: []
